@@ -1,1 +1,22 @@
+on:
+  push:
+    branches:
+      - master
 
+
+
+
+
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "login to dockerHup"
+        run: docker login --username meslhy --password dckr_pat_o4rlJZFFSjZpiRpbsrq1bbTMR3A
