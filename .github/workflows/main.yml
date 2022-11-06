@@ -18,5 +18,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: "login to dockerHup"
+
+      - name: "login to dockerhub"
         run: docker login --username ${{secrets.DockerUsername}} --password ${{secrets.Docker_Token}}
+
+
+      - name: "Building docker image"
+        run: docker build -t ${{secrets.DockerUsername}}/myimage .
+
+      - name: "pushing to docker image"
+        run: docker push ${{secrets.DockerUsername}}/myimage 
